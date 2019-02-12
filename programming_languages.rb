@@ -5,6 +5,7 @@ def reformat_languages(languages)
   array = []
   languages.each do |key, val|
     temp = key
+
     val.each do |k2, v2|
       new_hash[k2] = {}
       if k2.to_s == "javascript"
@@ -23,4 +24,24 @@ def reformat_languages(languages)
   end
     new_hash
     #binding.pry
+
+
+    val.each do |k2, v2|
+
+      new_hash[k2] = {}
+      new_hash[k2][:style] = [temp]
+      v2.each do |k3, v3|
+        if new_hash.include?(new_hash[k2][k3])
+          new_hash[k2][k3].push(v3)
+        else
+          new_hash[k2][k3] = [v3]
+        end
+      end
+      binding.pry
+    end
+
+  end
+
+    binding.pry
+
 end
